@@ -1,0 +1,26 @@
+Parcel Does:
+- Create A Server
+- HMR - Hot Module Replacement
+- File Watcher Algorithm - Built In C++
+- BUNDLING
+- MINIFICATION
+- CODE CLEANING
+- Dev & Production Builds
+- Super Fast Build Algorithm
+- Image Optimization
+- Caching While Development
+- Compression
+- Compatible With Older Browser Versions
+- HTTPS On Development
+- Manages Port Number
+- Consisting Hashing Algorithm
+- Zero Configuration
+
+//////////////////////////////////////////////////////
+
+-- TRANSITIVE DEPENDENCIES
+-- DEPENDENCY TREE
+
+//////////////////////////////////////////////////////
+
+- Anything that is generative, we can put inside .gitignore
