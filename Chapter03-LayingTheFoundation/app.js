@@ -1,87 +1,110 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import logo from './assets/logo.png';
+// # Chapter 03 - Laying the Foundation
 
-/* Nested header element with h1,h2,h3 using React.createElement() */ 
-const heading1 = React.createElement("h1", {id: "heading"}, "Namaste React Live");
-const heading2 = React.createElement("h2", {id: "main_heading"}, "Chapter 03 : Laying the foundation");
-const heading3 = React.createElement("h3", {id: "sub_heading"}, "Nested header element with h1,h2,h3 using React.createElement()");
+/*
+ * This are the feature of Parcel
+ * Created A Server
+ * HMR - Hot Module Replacement
+ * File Watcher algorithm - C++
+ * BUNDLING
+ * MINIFY
+ * Cleaning our Code
+ * Dev abd Production Build
+ * Super Fast build algorithm
+ * Image Optimization
+ * Caching while development
+ * Compression
+ * Compatible with older version of browser
+ * HTTPS on dev
+ * port Number
+ * Consistent Hashing Algorithm
+ * Zero Config
+ * Tree shaking
+ *
+ *
+ * Transitive Dependencies
+ */
 
-const header = React.createElement("div", {className : "title"}, [heading1, heading2, heading3]);
+// imported react and reactdom from nodemodule folder
+// import {React, createElement as ce} from 'react';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-/* Nested header element with h1,h2,h3 using JSX */ 
-const jsx_header= (
-  <div className="title">
-    <h1>Namaste React Live</h1>
-    <h2>Chapter 03 : Laying the foundation</h2>
-    <h3>Nested header element with h1,h2,h3 using JSX</h3>
-  </div>
+// Create Header element like navbar using createElement
+/*
+ * 
+<div class="header">
+<h1>Title</h1>
+<ul>
+<li>Home</li>
+<li>About Us</li>
+</ul>
+ * 
+ * 
+ */
+// const heading = ce(
+//   "div",
+//   {
+//     className: "header",
+//     key: "header",
+//   },
+//   [ce(
+//     "h1",
+//     {
+//       key: "Title",
+//     },
+//   "Title"), ce(
+//     "ul",
+//     {
+//       key: "ul",
+//     },
+//   [ce(
+//     "li",
+//     {
+//       key: "Home",
+//     },
+//   "Home"),ce(
+//     "li",
+//     {
+//       key: "About Us",
+//     },
+//   "About Us")])]
+// )
+
+// create header element using JSX
+// JSX => React.createElement => Object => HTML (DOM) (babel does all the conversion)
+// Below Is The React Element
+const heading = (
+  <h1 id="h1" key="h1">
+    This is JSX
+  </h1>
 );
 
-/* Nested header element with h1,h2,h3 using JSX React Element and pass attributes */ 
-const jsx_header_attr= (
-  <div className="title">
-    <h1 id="heading1" titlename="namaste"> <a href="https://learn.namastedev.com/">Namaste React Live </a></h1>
-    <h2>Chapter 03 : Laying the foundation</h2>
-    <h3>Nested header element with h1,h2,h3 using JSX and pass attributes</h3>
-  </div>
-);
+// React Component 
+// Functional component - new way of writing component 
+// Class component - old way of writing component
 
-/* Nested header element with h1,h2,h3 using Functional Component */ 
-const TitleComponent = function() {
+// Title component is functional component
+const Title = () => {
   return (
-    <div className="title">
-      <h1>Namaste React Live</h1>
-      <h2>Chapter 03 : Laying the foundation</h2>
-      <h3>Nested header element with h1, h2, h3 using Functional Component - TitleComponent</h3>
-    </div>
-  );
+    <h1 id="title" key="title">Namaste React</h1>
+  )
 }
-
-/* Assignment 2 */
-
+// Header component is functional component
+// Component Composition
 const HeaderComponent = function (){
-  return(
-    <div className="heading-wrapper">
-      <div className="logo-wrapper">
-        <img src={logo} alt="Logo" />
-        <span className="logo-name">Learn React With Harshi</span>
-      </div>
-
-      <div className="search">
-        <input type="text" key="search" placeholder="Search for a chapter"/>
-      </div>
-    
-      <div className="avatar">
-        <div className="user-icon" key="user-icon"> </div>
-      </div>
-    </div>
-  );
-}
-
-/* Component Composition */
-
-const NestedComponent = function () {
   return (
     <div>
-      <HeaderComponent />
-      {header}
-      {jsx_header}
-      {jsx_header_attr}
-      { TitleComponent }{/* It does not work and warning is thrown in console since TitleComponent is a component and not a react element*/}
-      { <TitleComponent /> } {/* It works since TitleComponent is enclosed within <> */}
-      { <TitleComponent> </TitleComponent> } {/* It works since TitleComponent is enclosed within <> */}
-      
+      <Title/>
+      {/* we can also use <Title()> */}
+      {/* we can also use {Title()} */}
+      {/* we can also use <Title></Title> */}
+      {console.log(10)}
+    <h1>Namaste React Functional component</h1>
+    <h2>This is h2 tag</h2>
     </div>
-  );
+  )
 }
-
+// create root using createRoot
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-/* Assignment 1 */
-// root.render(header); /* Rendering header created using React.createElement() */
-// root.render(jsx_header); /* Rendering header created using JSX */
-// root.render(jsx_header_attr); /* Rendering header created using JSX  and passing attributes in jsx tag*/root.render(<TitleComponent />); /* Rendering header created using Functional Component */
-
-root.render(<NestedComponent />); /* Assignment 2  */
-
+// passing react element inside root
+root.render(<HeaderComponent/>);

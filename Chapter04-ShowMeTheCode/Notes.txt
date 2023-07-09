@@ -1,0 +1,28 @@
+-- We Can Use Comments In JSX Inside {}
+-- For Example, {//Comment}
+-- We Can Use React In Specific Area Like Footer By Changing The "root"
+-- JSX Expression Can Only Have One Parent
+-- React.Fragment {or <></>}
+-- React.Fragment Used To Remove Extra Divs/Tags
+-- We Can't Pass Styles To It [To React Fragment Because It Is An Empty Tag And Does'nt Exist In HTML]
+-- Styling In React {Styling Using JS Object}
+-- e.g. <div style={{backgroundColor: orange}}></div>
+
+-- Config Driven UI
+-- Optional Chaining
+-- Props {Properties}
+-- Argument Vs Parameters {You Pass ARGUMENTS and Recieve PARAMETERS}
+-- Object Destructuring
+-- We Don't Use ForLoop In Functional Programming. Instead We Use MAP.
+-- Revise MAP,FILTER,REDUCE In JavaScript
+-- VirtualDOM
+-- VirtualDOM Is Not A React-Only Concept. It Is A Software Engineering Concept
+-- VirtualDOM Is A Representation Of DOM In Our Code.
+-- Why Do We Need VirtualDOM?
+-- What Is React Reconciliation? [It Is An Algorithm [Uses Diffing Algorithm] That React Uses To Diff One Tree From Other And It Determines What Needs To Be Changed In UI And What Does'nt]
+-- If We Have 4 Divs And We Add Another 5th Div At Any Position. The React Diffing Algorithm Will Not Be Able To Catch Changes [Where Div Is Added] And It Renders All The 5 Divs. To Avoid That Problem, We Use Keys [Unique] With All The Divs. And After Using Keys, The Diffing Algorithm Only Renders That Specific Changed Div With Unique Key. [Because Keys Help Diffing Algorithm To Differentiate Same Tags]
+
+-- What Is React Fiber?
+-- In React16, The Diffing Algorithm Changed And React Introduced React Fiber. React Fiber Is A New Reconciliation Engine And It Is Responsible For Diff.
+
+-- NOTE: Never Use Index As KEY. Use Any Unique Key Like ID [Best Practice]. Only Use Index As KEY If There's No Other Option Left.
