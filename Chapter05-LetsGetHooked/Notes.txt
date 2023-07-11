@@ -1,0 +1,10 @@
+
+
+-- We Can EXPORT DEFAULT Just One Thing.
+-- Default Import Vs Named Import.
+-- There's One Way DATA BINDING In React.
+-- What Is STATE, HOOK, useState?
+-- Hook Is A Function.
+-- useState Is Used To Create State Variables. It Returns An Array. [VariableName, FunctionToChangeVariable]
+-- One-Way Binding Vs Two-Way Binding
+
