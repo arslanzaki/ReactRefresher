@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 
@@ -8,11 +8,13 @@ function filterData(searchText, restaurants) {
   );
   return filteredData;
 }
+
+
 const Body = () => {
   // searchText Is A Local State Variable.
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restaurantList);
-
+  useEffect(() => {console.log("RE-RENDERING")}, [searchText]);
   return (
     <>
       <div className="search-container">

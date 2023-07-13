@@ -1,0 +1,25 @@
+-- Why React Is Fast?
+    -- Because It Has Fast DOM Manipulation. [Because Of Reconciliation, Diffing Algorithm, React Fiber (New Reconciliation Algorithm)]
+
+-- React Only Track Local State Variables [Created Using useState Hook]
+-- When The State Variable Is Changed, React Re-Renders The Component
+-- Component Re-Renders When:
+    -- State Changes
+    -- Props Changes
+
+-- What Is Monolith Architecture? 
+-- Microservices Vs Monolith Architecture
+-- What Is Separation Of Concern [Or Single Responsibility]
+
+-- When Dependency Array Is Empty, useEffect Will Be Called Once After The RENDER
+-- When Dependency Array Is Like [searchText], useEffect Will Be Called Once After Initial RENDER & Everytime After RE-RENDER (When The searchText Changes).
+-- What Is CORS?
+-- What Is Conditional Rendering?
+-- Shimmer UI
+-- Difference Between JS Expressions & Statements.
+-- Only JS Expressions Can Be Written In {} Not Statements.
+-- But We Can Use Statements In {} Like This...
+    {
+        ((a=10), console.log(a))
+    }
+
