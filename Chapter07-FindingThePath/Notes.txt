@@ -1,0 +1,20 @@
+
+
+-- If We Don't Pass Dependency Array, The useEffect Hook Will Not Be Dependent On Anything And Will Be Called After Every Render
+
+-- According To React Documentation, Never Create A Component Inside A Component Because That Component Will Be Created Everytime The Component Is Rendered.
+-- Never Ever Use useState Inside if/else or for loop.
+-- Never Use useState Outside Functional Component
+-- We Can Create Multiple useEffect Hooks Inside A Functional Component
+-- Why CDN A Great Place To Store Images?
+    -- Because CDN Is Faster
+    -- It Caches The Image & Returns Very Fast
+    -- It Optimizes Things
+
+-- In CDN, We Can't Optimize The Images After They Come To Our Browser. We Already Upload Optimized Images To CDN.
+-- We Should'nt Install NPM Packages For Small Tasks
+-- Use FORMIK To Build Forms
+
+-- There Are Two Types Of ROUTING
+    -- Client Side
+    -- Server Side
