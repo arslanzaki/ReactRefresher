@@ -1,0 +1,68 @@
+
+// You can't create a class-based component without the render method
+// Props are accessed using this.props
+// We can't mutate the state directly
+// First Constructor renders, then render function and then componentDidMount
+// Call APIs in componentDidMount
+
+// If A Parent Class Component Renders 2 Class Components Then The Order Will Be As Follows:
+
+-- Parent Constructor
+-- Parent Render
+    -- First Child - Constructor
+    -- First Child - Render
+    -- Second Child - Constructor
+    -- Second Child - Render
+    -- First Child - componentDidMount
+    -- Second Child - componentDidMount
+-- Parent componentDidMount
+
+
+-- When React Is Rendering Things Up, It Does It In 2 Phases
+    -- Render Phase
+        -- Includes Constructor & Render 
+    -- Commit Phase
+        -- The Place Where React Modifying Your DOM 
+        -- Then componentDidMount is called
+
+-- MOUNTING CYCLE (Called First Time)
+    -- Render Phase
+        -- Constructor & Render Is Called 
+    -- Commit Phase
+        -- DOM Manipulation
+        -- componentDidMount Is Called
+        -- Data From API Is Fetched
+
+-- UPDATING CYCLE (Called Every Time When The State Is Changed)
+    -- Render Phase
+        -- Render Is Called After setState()
+    -- Commit Phase
+        -- DOM Manipulation
+        -- componentDiUpdate Is Called
+
+-- UNMOUNTING CYCLE
+    -- componentWillUnmount Is Called When The Route/Page Changes
+
+
+
+
+
+-- Why we call super(props) in class constructor?
+-- Why we can't make the callback function in useEffect as async BUT in componentDidMount we can?
+
+
+
+-- NOTE: Never Compare React Lifecycle Methods With Functional Components
+
+-- useEffect(()=>{
+    const timer = setInterval(()=>{
+        console.log("ArslanAsghar");
+    }, 1000);
+
+    return ()=>{
+
+        // This function is called when we are UNMOUNTING/CLEANUP it (i.e when we change page/route)
+        clearInterval(timer);
+    }
+}, []);
+
