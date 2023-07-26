@@ -1,0 +1,33 @@
+
+
+-- Building Own Hooks
+    - Why we build custom hooks?
+        - Readability
+        - Reuseability
+        - Maintainability (Easy Debugging)
+        - Testable
+
+
+-- MODULARITY means that we broken down our code into meaningful pieces/chunks
+-- Always set the hook name starting with 'use'
+-- We use all the helper methods as named exports
+-- If we have to return only 1 function/value from the component, then we use default exports for that.
+-- Custom Hook or Simply Hook does not need to return JSX (like in Components). It is just a piece of JS code which extracts some logic
+-- Why we create custom hook not a normal function?
+    -> Because normal function does not aware of React State or Lifecycle Methods
+    -> Custom hook can use state and other React features
+    -> Therefore, by using custom hooks, we can create reusable code that follows the conventions of React hooks and promotes separation of concerns in our code.
+    -> While regular functions can also be used to separate logic, they are not as flexible as custom hooks because they cannot utilize hooks or easily share state between components.
+
+
+-- The bundler creates 1 js file at the end of the day from our whole code.
+-- If our app is huge and have a lot of components, the resultant 1 js file will be huge and can create problems like Application Load Time & Slow Performance.
+-- It is not a good idea to load all the code to the browser in LARGE SCALE APPLICATIONS.
+-- So, generally in LARGE SCALE APPLICATIONS, you build different CHUNKS/BUNDLES based on the use-cases. It is upon the developer's wisdom
+-- Here comes the concept of CHUNKING/CODE SPLITTING/DYNAMIC BUNDLING/LAZY LOADING/ON-DEMAND LOADING/DYNAMIC IMPORTING
+-- This helps is SYSTEM DESIGN INTERVIEW
+
+-- When you are loading your component ON-DEMAND/LAZY LOAD, React tries to suspend it
+
+-- NOTE: Never Ever Load LAZY LOAD COMPONENT Into Another Component Body
+
