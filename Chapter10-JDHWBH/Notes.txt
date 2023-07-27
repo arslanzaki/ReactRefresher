@@ -1,0 +1,14 @@
+-- Normal Native CSS
+-- SCSS
+-- Inline CSS
+-- Component Libraries - Material UI, Base UI, Ant Design, Chakra UI
+-- Styled Components
+-- Tailwind CSS
+    -> CSS On The Go (In The Same File)
+    -> Reusability
+    -> Less Bundle Size
+    -> Flexible UI (Customizations)
+    -> Easy To Debug
+    -> More Control Over Things
+
+    
