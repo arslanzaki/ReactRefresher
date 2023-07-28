@@ -1,0 +1,5 @@
+-- Install React Dev Tools
+
+-- Passing Props From One Parent To Child To Child To Child And So On Is Known As PROPS DRILLING.
+
+-- LIFTING THE STATE UP
