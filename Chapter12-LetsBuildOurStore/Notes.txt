@@ -1,0 +1,46 @@
+
+
+-- CONTEXT is a central place & any component in your app can ACCESS your CONTEXT & any component in your app can MODIFTY that CONTEXT
+-- When your application grows a lot, the libraries like REDUX comes into picture.
+-- Instead of creating multiple contexts, we can create a REDUX STORE
+-- Only use REDUX if you are building large scale applications that requires a lot of DATA HANDLING
+-- For small scale applications, use CONTEXT API  
+
+-- In CONTEXT, we create multiple CONTEXTS, but in REDUX, we create only ONE STORE.
+-- The REDUX STORE has logical separations called SLICES e.g. cartSlice, userSlice, authSlice etc.
+-- A SLICE is a small portion of your STORE.
+-- To modify the data in store, we have to DISPATCH an ACTION from components e.g. addItem
+-- addItem will call a FUNCTION & that FUNCTION will modify our CART in STORE & We cannot directly modify the CART.
+-- That FUNCTION is known as REDUCER
+-- "When we click on the PLUS button, we DISPATCH an ACTION which calls a REDUCER function which updates the SLICE of the STORE"
+-- To get/read data from the SLICE in the STORE, we use SELECTOR
+-- SELECTOR is Hook known as useSelector
+-- The CART Component is SUBSCRIBED to the STORE using SELECTOR/useSelector which means whenever the STORE is updated/modified, the CART is also MODIFTIED.
+
+
+-- Create Store
+    - configureStore() - from RTK
+
+-- Provide Store To App
+    - <Provider store={store}></Provider> - from react-redux 
+
+-- Slice
+    - createSlice() - from RTK
+        -> name: "cart"
+        -> initialState
+        -> reducers :{
+            addItem,
+            removeItem,
+            clearCart
+        }
+
+    - export const {addItem,removeItem,clearCart} = cartSlice.actions 
+    - export default cartSlice.reducer 
+
+-- Put that Slice into Store
+    - {
+        reducer: {
+            cart: cartSlice,
+            user: userSlice
+        }
+    }
