@@ -1,0 +1,110 @@
+
+-- Before REACT TESTING LIBRARY people used ENZYME
+-- WHY DO WE NEED TEST CASES?
+    - We write test cases to ensure that our code is properly intacted i.e. adding new code doesn't affect the old/existing code
+    - It helps us in maintainability
+    - Test Driven Development [We write test cases even before writing our code]. So, we will always have 100% test coverage. But the problem is when you go for Test Driven Development, the development process becomes very very slow. Although it ensures a very good quality of code.
+ 
+
+-- Different Types Of Testing:
+    - Manual Testing
+        -> Humans Testing Our Code [Through UI]
+
+    - Automation Testing
+        -> Code Testing Our Code
+        -> Using Selenium
+
+    - E2E Testing [Whole Flow Is Tested]
+        -> Covers Entire User Journey 
+        -> Usually this part is offloaded to QA team who write test cases for them (Selenium Testing)
+        -> Using Headless Browser
+        -> It's just like replacing the manual testing with code
+
+    - Unit Testing [Core Job Of Developer]
+        -> Means you're testing small units e.g. the cards are loading properly or not, header loading or not, the logo appearing fine or not etc.
+        -> It's kind of small components feature testing
+
+    - Integration Testing [Also The Core Job Of Developer]
+        -> Testing the integration between the components
+
+
+-- Testing Is Just Like Development [Means It Takes Time]
+
+-- REACT TESTING LIBRARY is a part of TESTING LIBRARY
+-- If you need to test JavaScript code, you use JEST
+    - Jest is a delightful JavaScript Testing Framework with a focus on simplicity
+    - RTL uses Jest behind the scenes
+    - RTL makes your testing in react very efficient
+
+
+-- PROCESS:
+    - npm install --save-dev @testing-library/react
+    - npm install -D jest
+    - Configure Jest
+        -> npx jest --init
+            - use typescript -> yes/no -> no
+            - test environment -> node/jsdom (browser-like) -> jsdom (browser-like)
+            - add coverage report -> yes/no -> yes
+            - provider to instrument code for coverage -> v8/babel -> babel
+            - automatically clear before every test -> yes/no -> yes
+        -> after that the jest.config.js file is generated
+        -> npm install -D jest-environment-jsdom
+    
+    - Create First Test
+        -> create folder __tests__ in components folder
+        -> so jest will consider all files in __tests__ as testing files
+        -> double underscore (__) is also known as DUNDER.
+        -> .test.js/.spec.js indicates that the file is a testing file
+        -> to create a test-case we write test(arg1, arg2()), it's first argument is the name of the test, and the second argument is a function and in that function there will be the code that the test() function will execute.
+        -> every test-case should have an expectation, we call that ASSERTION also.
+        -> inside second argument function use:
+            expect(funcName(arg1,arg2,...).toBe(expectedResult)) 
+        -> After that hit "npm run test", but the error comes up because the jest does not understand the import statements. To fix that error we have to configure babel with jest
+
+    - Configure Babel With Jest
+        -> npm install --save-dev babel-jest @babel/core @babel/preset-env
+        -> create babel.config.js or .babelrc and add presets from the documentation
+            "presets": [["@babel/preset-env", {"targets": {"node": "current"}}]]
+
+    
+    - Rendering Tests In JSDOM
+        -> use render() inside the second argument function of the test()
+        -> const header = render(<Header/>)
+        -> at this time when we hit "npm run test", it will give us error that JSX is not understood.
+        -> to make the jest understand JSX, do "npm install @babel/preset-react" & add the following in "presets" in the .babelrc file:
+            ["@babel/preset-react", {"runtime": "automatic"}]
+
+
+    - For Testing Images
+        -> if we are using files as src in components, the jest will try to read them as javascript which results in error.
+        -> to fix this, 
+        -> moduleNameMapper is a place where we can tell jest that whatever png/jpg/svg image we have, take it from dummy/mock image.
+            moduleNameMapper: {
+                "\\.(jpg|png|svg)$" : "../mocks/dummyLogo.js"
+            }
+
+    
+-- We don't run our tests on browser, we run our tests on jsdom
+-- We use StaticRouter from the react-router-dom/server for testing because this router can work without browser
+-- Use getAllByTestId on VirtualDOM node (It gives array of HTML elements)
+-- Use getByTestId on VirtualDOM node (It gives single value)
+-- Browser recognizes "id" BUT Jest recognizes "data-testid"
+
+-- Testing The Fetch function
+    - The jsdom does not understands the fetch() function so we create our own fetch function for testing
+    e.g. 
+        global.fetch = jest.fn(()=>{
+
+        })
+
+    - Basically the fetch() function returns a promise so,
+        global.fetch = jest.fn(()=>{
+            Promise.resolve(())
+        })
+
+    - Also as the fetch() returns a readable stream and we convert that into JSON so,
+        global.fetch = jest.fn(()=>{
+            Promise.resolve({
+                json: Promise.resolve(Here we pass data that we have to mock)
+            })
+        })
